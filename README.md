@@ -1,15 +1,44 @@
 # CV Maker
 
-**CV Maker** is a Laravel-based web application for authenticated CV creation and management.  
-Built with **Laravel Breeze** for secure access and includes a **Spatie Role & Permission** interface for role management.
+**CV Maker** is a Laravel-based web application for authenticated CV creation and management.
+Built with Laravel Breeze for secure access, with a frontend interface for role and permission management (backend integration can be added in the future).
 
 ---
 
 ## Features
+'''
+- Secure CV submission, editing, viewing, and downloading (accessible via authenticated Breeze users)
+- Spatie Role & Permission interface (frontend ready; backend integration required)
+- Fully responsive design using Tailwind CSS and Bootstrap
+- File and image management handled via Laravel storage
+'''
+---
 
--   Secure CV submission, edit, view, and download (requires user login via Breeze authentication)
--   Spatie Role & Permission interface (Frontend interface available; backend integration not yet implemented)
--   Tailwind CSS layout for desktop (basic responsiveness on tablet/mobile; full responsive support can be implemented)
--   Laravel storage for file and image handling
+## Screenshots
+
+### 📝 CV Form
+Form view for creating the CV.
+Allows users to fill personal info, education, experience, skills, references, and upload a profile image.  
+![Form View](https://github.com/Obyedullahilmamun/CV-Maker/blob/22e32fc5c2a4961b2263f8a1427135088a1f1876/images/form-view.png)
 
 ---
+
+### 📋 CV Index
+List of submitted CVs with options to **view**, **edit**, and **delete**.
+Provides an overview of all CV submissions for authenticated users.  
+![Index View](https://github.com/Obyedullahilmamun/CV-Maker/blob/22e32fc5c2a4961b2263f8a1427135088a1f1876/images/index-view.png)
+
+---
+
+### 👥 Spatie Management - Users
+Frontend view of the **Users** management section.
+![Users View](https://github.com/Obyedullahilmamun/CV-Maker/blob/22e32fc5c2a4961b2263f8a1427135088a1f1876/images/users-view.png)
+
+---
+
+### 🛡️ Spatie Management - Roles
+Frontend view of the **Roles** management section.
+![Roles View](https://github.com/Obyedullahilmamun/CV-Maker/blob/22e32fc5c2a4961b2263f8a1427135088a1f1876/images/roles-view.png)
+
+
+*All features are available to authenticated users; role and permission management is frontend-ready, with backend integration to be implemented.*
