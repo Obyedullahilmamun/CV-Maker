@@ -6,12 +6,13 @@ Built with Laravel Breeze for secure access, with a frontend interface for role 
 ---
 
 ## Features
-'''
+
+```
 - Secure CV submission, editing, viewing, and downloading (accessible via authenticated Breeze users)
 - Spatie Role & Permission interface (frontend ready; backend integration required)
 - Fully responsive design using Tailwind CSS and Bootstrap
 - File and image management handled via Laravel storage
-'''
+```
 ---
 
 ## Screenshots
