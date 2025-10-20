@@ -20,7 +20,6 @@
     <!-- Icons css -->
     <link href="{{ asset('assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
 
-
     <!-- Remix Icon CDN -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 
@@ -31,15 +30,44 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
 
+    <style>
+        .left-navbar-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 20px;
+            padding: 8px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            color: var(--ct-topbar-item-color);
+        }
+
+        .left-navbar-toggle:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 991.98px) {
+            .left-navbar-toggle {
+                display: inline-block;
+            }
+        }
+    </style>
 </head>
 
 <body>
     <!-- Begin page -->
     <div class="wrapper">
-        <!-- ========== Topbar Start ========== -->
+        <!-- Topbar Start -->
         <div class="navbar-custom">
             <div class="topbar container-fluid">
                 <div class="d-flex align-items-center gap-lg-2 gap-1">
+
+                    <!-- Left Sidebar Toggle Button - Visible only on mobile/tablet -->
+                    <button class="left-navbar-toggle d-lg-none" data-bs-toggle="offcanvas"
+                        data-bs-target="#mobileSidebar" aria-controls="mobileSidebar">
+                        <i class="ri-menu-line"></i>
+                    </button>
 
                     <!-- Topbar Brand Logo -->
                     <div class="logo-topbar">
@@ -48,9 +76,6 @@
                             <span class="logo-lg">
                                 <img src="{{ asset('assets/images/logo.png') }}" alt="logo">
                             </span>
-                            <span class="logo-sm">
-                                <img src="{{ asset('assets/images/logo-sm.png') }}" alt="small logo">
-                            </span>
                         </a>
 
                         <!-- Logo Dark -->
@@ -58,20 +83,8 @@
                             <span class="logo-lg">
                                 <img src="{{ asset('assets/images/logo-dark.png') }}" alt="dark logo">
                             </span>
-                            <span class="logo-sm">
-                                <img src="{{ asset('assets/images/logo-sm.png') }}" alt="small logo">
-                            </span>
                         </a>
                     </div>
-
-                    <!-- Horizontal Menu Toggle Button -->
-                    <button class="navbar-toggle" data-bs-toggle="collapse" data-bs-target="#topnav-menu-content">
-                        <div class="lines">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                    </button>
 
                     <!-- Topbar Search Form -->
                     <div class="app-search dropdown d-none d-lg-block">
@@ -182,134 +195,13 @@
                             <span class="noti-icon-badge"></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated dropdown-lg py-0">
-                            <div class="p-2 border-top-0 border-start-0 border-end-0 border-dashed border">
-                                <div class="row align-items-center">
-                                    <div class="col">
-                                        <h6 class="m-0 fs-16 fw-medium"> Notification</h6>
-                                    </div>
-                                    <div class="col-auto">
-                                        <a href="javascript: void(0);" class="text-dark text-decoration-underline">
-                                            <small>Clear All</small>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
+                        </div>
+                    </li>
 
-                            <div style="max-height: 300px;" data-simplebar>
-                                <h5 class="text-muted fs-12 fw-bold p-2 text-uppercase mb-0">Today</h5>
-                                <!-- item-->
-                                <a href="javascript:void(0);"
-                                    class="dropdown-item p-0 notify-item unread-noti card m-0 shadow-none">
-                                    <div class="card-body">
-                                        <div class="d-flex align-items-center">
-                                            <div class="flex-shrink-0">
-                                                <div class="notify-icon bg-primary">
-                                                    <i class="ri-message-3-line fs-18"></i>
-                                                </div>
-                                            </div>
-                                            <div class="flex-grow-1 text-truncate ms-2">
-                                                <h5 class="noti-item-title fw-medium fs-14">Datacorp <small
-                                                        class="fw-normal text-muted float-end ms-1">1 min ago</small>
-                                                </h5>
-                                                <small class="noti-item-subtitle text-muted">Caleb Flakelar commented
-                                                    on Admin</small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-
-                                <!-- item-->
-                                <a href="javascript:void(0);"
-                                    class="dropdown-item p-0 notify-item read-noti card m-0 shadow-none">
-                                    <div class="card-body">
-                                        <div class="d-flex align-items-center">
-                                            <div class="flex-shrink-0">
-                                                <div class="notify-icon bg-info">
-                                                    <i class="ri-user-add-line fs-18"></i>
-                                                </div>
-                                            </div>
-                                            <div class="flex-grow-1 text-truncate ms-2">
-                                                <h5 class="noti-item-title fw-medium fs-14">Admin <small
-                                                        class="fw-normal text-muted float-end ms-1">1 hr ago</small>
-                                                </h5>
-                                                <small class="noti-item-subtitle text-muted">New user
-                                                    registered</small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-
-                                <h5 class="text-muted fs-12 fw-bold p-2 mb-0 text-uppercase">Yesterday</h5>
-
-                                <!-- item-->
-                                <a href="javascript:void(0);"
-                                    class="dropdown-item p-0 notify-item read-noti card m-0 shadow-none">
-                                    <div class="card-body">
-                                        <div class="d-flex align-items-center">
-                                            <div class="flex-shrink-0">
-                                                <div class="notify-icon">
-                                                    <img src="{{ asset('assets/images/users/avatar-2.jpg') }}"
-                                                        class="img-fluid rounded-circle" alt="" />
-                                                </div>
-                                            </div>
-                                            <div class="flex-grow-1 text-truncate ms-2">
-                                                <h5 class="noti-item-title fw-medium fs-14">Cristina Pride <small
-                                                        class="fw-normal text-muted float-end ms-1">1 day ago</small>
-                                                </h5>
-                                                <small class="noti-item-subtitle text-muted">Hi, How are you? What
-                                                    about our next meeting</small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-
-                                <h5 class="text-muted fs-12 fw-bold p-2 mb-0 text-uppercase">31 Jan 2023</h5>
-
-                                <!-- item-->
-                                <a href="javascript:void(0);"
-                                    class="dropdown-item p-0 notify-item read-noti card m-0 shadow-none">
-                                    <div class="card-body">
-                                        <div class="d-flex align-items-center">
-                                            <div class="flex-shrink-0">
-                                                <div class="notify-icon bg-primary">
-                                                    <i class="ri-discuss-line fs-18"></i>
-                                                </div>
-                                            </div>
-                                            <div class="flex-grow-1 text-truncate ms-2">
-                                                <h5 class="noti-item-title fw-medium fs-14">Datacorp</h5>
-                                                <small class="noti-item-subtitle text-muted">Caleb Flakelar commented
-                                                    on Admin</small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-
-                                <!-- item-->
-                                <a href="javascript:void(0);"
-                                    class="dropdown-item p-0 notify-item read-noti card m-0 shadow-none">
-                                    <div class="card-body">
-                                        <div class="d-flex align-items-center">
-                                            <div class="flex-shrink-0">
-                                                <div class="notify-icon">
-                                                    <img src="{{ asset('assets/images/users/avatar-4.jpg') }}"
-                                                        class="img-fluid rounded-circle" alt="" />
-                                                </div>
-                                            </div>
-                                            <div class="flex-grow-1 text-truncate ms-2">
-                                                <h5 class="noti-item-title fw-medium fs-14">Karen Robinson</h5>
-                                                <small class="noti-item-subtitle text-muted">Wow ! this admin looks
-                                                    good and awesome design</small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <!-- All-->
-                            <a href="javascript:void(0);"
-                                class="dropdown-item text-center text-primary text-decoration-underline fw-bold notify-item border-top border-light py-2">
-                                View All
-                            </a>
+                    <!-- Light/Dark Mode Toggle - Visible on all screens -->
+                    <li class="d-sm-inline-block">
+                        <div class="nav-link" id="light-dark-mode">
+                            <i class="ri-moon-fill fs-22"></i>
                         </div>
                     </li>
 
@@ -319,53 +211,6 @@
                             <i class="ri-apps-2-fill fs-22"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated dropdown-lg p-0">
-                            <div class="p-2">
-                                <div class="row g-0">
-                                    <div class="col">
-                                        <a class="dropdown-icon-item" href="#">
-                                            <img src="{{ asset('assets/images/brands/github.png') }}" alt="Github">
-                                            <span>GitHub</span>
-                                        </a>
-                                    </div>
-                                    <div class="col">
-                                        <a class="dropdown-icon-item" href="#">
-                                            <img src="{{ asset('assets/images/brands/bitbucket.png') }}"
-                                                alt="bitbucket">
-                                            <span>Bitbucket</span>
-                                        </a>
-                                    </div>
-                                    <div class="col">
-                                        <a class="dropdown-icon-item" href="#">
-                                            <img src="{{ asset('assets/images/brands/dropbox.png') }}"
-                                                alt="dropbox">
-                                            <span>Dropbox</span>
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div class="row g-0">
-                                    <div class="col">
-                                        <a class="dropdown-icon-item" href="#">
-                                            <img src="{{ asset('assets/images/brands/slack.png') }}" alt="slack">
-                                            <span>Slack</span>
-                                        </a>
-                                    </div>
-                                    <div class="col">
-                                        <a class="dropdown-icon-item" href="#">
-                                            <img src="{{ asset('assets/images/brands/dribbble.png') }}"
-                                                alt="dribbble">
-                                            <span>Dribbble</span>
-                                        </a>
-                                    </div>
-                                    <div class="col">
-                                        <a class="dropdown-icon-item" href="#">
-                                            <img src="{{ asset('assets/images/brands/behance.png') }}"
-                                                alt="Behance">
-                                            <span>Behance</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </li>
 
@@ -373,12 +218,6 @@
                         <a class="nav-link" data-bs-toggle="offcanvas" href="#theme-settings-offcanvas">
                             <i class="ri-settings-3-fill fs-22"></i>
                         </a>
-                    </li>
-
-                    <li class="d-none d-sm-inline-block">
-                        <div class="nav-link" id="light-dark-mode">
-                            <i class="ri-moon-fill fs-22"></i>
-                        </div>
                     </li>
 
                     <li class="d-none d-md-inline-block">
@@ -427,15 +266,15 @@
                             </ul>
                         </div>
                     </li>
-
-
                 </ul>
+
             </div>
         </div>
-        <!-- ========== Topbar End ========== -->
+        <!-- Topbar End -->
 
-        <!-- ========== Left Sidebar Start ========== -->
-        <div class="leftside-menu">
+        <!-- Left Sidebar Start -->
+        <!-- Desktop Sidebar -->
+        <div class="leftside-menu d-none d-lg-block">
             <!-- Sidebar Hover Menu Toggle Button -->
             <div class="button-sm-hover" data-bs-toggle="tooltip" data-bs-placement="right"
                 title="Show Full Sidebar">
@@ -447,26 +286,23 @@
                 <i class="ri-close-fill align-middle"></i>
             </div>
 
-            <!-- Sidebar -left -->
             <div class="h-100" id="leftside-menu-container" data-simplebar>
                 <!-- Leftbar User -->
                 <div class="leftbar-user p-3 text-white">
                     <a href="{{ route('profile.edit') }}" class="d-flex align-items-center text-reset">
-
                         <div class="flex-shrink-0">
                             <img src="{{ asset('assets/images/users/avatar-1.jpg') }}" alt="user-image"
                                 height="42" class="rounded-circle shadow">
                         </div>
-
                         <div class="flex-grow-1 ms-2">
                             <span class="fw-semibold fs-15 d-block">{{ Auth::user()->name }}</span>
                         </div>
                     </a>
                 </div>
 
-                <!--- Sidemenu -->
+                <!-- Sidemenu -->
                 <ul class="side-nav">
-                    <li class="side-nav-title mt-1"> Main</li>
+                    <li class="side-nav-title mt-1">Main</li>
                     @can('dashboard.view')
                         <li class="side-nav-item">
                             <a href="{{ route('dashboard') }}" class="side-nav-link">
@@ -481,8 +317,6 @@
                             <span> Index </span>
                         </a>
                     </li>
-
-
                     <li class="side-nav-item">
                         <a href="{{ route('form') }}" class="side-nav-link">
                             <i class="ri-chat-voice-fill"></i>
@@ -490,7 +324,7 @@
                         </a>
                     </li>
 
-                    <li class="side-nav-title mt-2"> Spatie Management </li>
+                    <li class="side-nav-title mt-2">Spatie Management</li>
 
                     <li class="side-nav-item">
                         <a href="{{ route('users.index') }}" class="side-nav-link ps-4 text-info fw-semibold">
@@ -508,7 +342,48 @@
                 </ul>
             </div>
         </div>
-        <!-- ========== Left Sidebar End ========== -->
+
+        <!-- Mobile/Tablet Offcanvas Sidebar -->
+        <div class="offcanvas offcanvas-start bg-dark text-white" tabindex="-1" id="mobileSidebar"
+            aria-labelledby="mobileSidebarLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="mobileSidebarLabel">CV Maker</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="leftbar-user mb-3">
+                    <a href="{{ route('profile.edit') }}" class="d-flex align-items-center text-reset">
+                        <div class="flex-shrink-0">
+                            <img src="{{ asset('assets/images/users/avatar-1.jpg') }}" alt="user-image"
+                                height="42" class="rounded-circle shadow">
+                        </div>
+                        <div class="flex-grow-1 ms-2">
+                            <span class="fw-semibold fs-15 d-block">{{ Auth::user()->name }}</span>
+                        </div>
+                    </a>
+                </div>
+
+                <ul class="list-unstyled">
+                    @can('dashboard.view')
+                        <li><a href="{{ route('dashboard') }}" class="text-white text-decoration-none d-block py-2"><i
+                                    class="ri-dashboard-2-fill me-2"></i> Dashboard</a></li>
+                    @endcan
+                    <li><a href="{{ route('index') }}" class="text-white text-decoration-none d-block py-2"><i
+                                class="ri-calendar-2-fill me-2"></i> Index</a></li>
+                    <li><a href="{{ route('form') }}" class="text-white text-decoration-none d-block py-2"><i
+                                class="ri-chat-voice-fill me-2"></i> Form</a></li>
+                    <hr class="bg-secondary">
+                    <li class="fw-bold text-info mt-2">Spatie Management</li>
+                    <li><a href="{{ route('users.index') }}" class="text-info text-decoration-none d-block py-2"><i
+                                class="ri-group-fill me-2"></i> Users</a></li>
+                    <li><a href="{{ route('roles.index') }}" class="text-info text-decoration-none d-block py-2"><i
+                                class="ri-shield-user-fill me-2"></i> Roles</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Left Sidebar End -->
 
         <div class="content-page">
             <div class="content">
@@ -518,21 +393,31 @@
             </div>
 
             <!-- Footer Start -->
-            <footer class="footer">
+    
+            <footer class="footer py-3 border-top bg-light mt-4">
                 <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <script>
-                                document.write(new Date().getFullYear())
-                            </script> © CV MAKER
+                    <div class="row align-items-center">
+
+                        <!-- Left Section: Always visible -->
+                        <div class="col-12 col-md-6 text-center text-md-start mb-2 mb-md-0">
+                            <small class="text-muted">
+                                <script>
+                                    document.write(new Date().getFullYear())
+                                </script> © CV MAKER
+                            </small>
                         </div>
-                        <div class="col-md-6">
-                            <div class="text-md-end footer-links d-none d-md-block">
-                                <a href="javascript: void(0);">About</a>
-                                <a href="javascript: void(0);">Support</a>
-                                <a href="javascript: void(0);">Contact Us</a>
+
+                        <!-- Right Section: Hidden on small, visible from md and up -->
+                        <div class="col-md-6 d-none d-md-flex justify-content-md-end">
+                            <div class="footer-links d-flex gap-3">
+                                <a href="javascript:void(0);" class="text-decoration-none text-muted small">About</a>
+                                <a href="javascript:void(0);"
+                                    class="text-decoration-none text-muted small">Support</a>
+                                <a href="javascript:void(0);" class="text-decoration-none text-muted small">Contact
+                                    Us</a>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </footer>

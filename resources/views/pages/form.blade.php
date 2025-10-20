@@ -18,10 +18,10 @@
         <!-- end page title -->
 
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-12">
                 <div class="card">
                     <form action="{{ isset($user) ? route('form.update', $user->id) : route('form.submit') }}" method="POST"
-                        enctype="multipart/form-data" class="p-4 rounded shadow bg-body text-body">
+                        enctype="multipart/form-data" class="p-3 p-md-4 rounded shadow bg-body text-body">
                         @csrf
                         @if (isset($user))
                             @method('PUT')
@@ -32,18 +32,18 @@
 
                         <!-- First Row -->
                         <div class="row g-3">
-                            <div class="col-md-4">
+                            <div class="col-12 col-md-4">
                                 <label class="form-label" for="fullName">Full Name</label>
                                 <input type="text" class="form-control" id="fullName" name="full_name"
                                     placeholder="Full Name" required
                                     value="{{ isset($user) ? $user->full_name : old('full_name') }}">
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-12 col-md-4">
                                 <label class="form-label" for="email">Email</label>
                                 <input type="email" class="form-control" id="email" name="email"
                                     placeholder="example@mail.com" value="{{ isset($user) ? $user->email : old('email') }}">
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-12 col-md-4">
                                 <label class="form-label" for="phone">Phone Number</label>
                                 <input type="tel" class="form-control" id="phone" name="phone"
                                     placeholder="+1234567890" value="{{ isset($user) ? $user->phone : old('phone') }}">
@@ -52,17 +52,17 @@
 
                         <!-- Second Row -->
                         <div class="row g-3 mt-3">
-                            <div class="col-md-4">
+                            <div class="col-12 col-md-4">
                                 <label class="form-label" for="summary">Professional Summary</label>
                                 <textarea class="form-control" id="summary" name="summary" placeholder="Brief summary or objective..." rows="4">{{ isset($user) ? $user->summary : old('summary') }}</textarea>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-12 col-md-4">
                                 <label class="form-label" for="location">Location</label>
                                 <input type="text" class="form-control" id="location" name="location"
                                     placeholder="City, Country"
                                     value="{{ isset($user) ? $user->location : old('location') }}">
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-12 col-md-4">
                                 <label class="form-label" for="linkedin">LinkedIn Profile</label>
                                 <input type="url" class="form-control" id="linkedin" name="linkedin"
                                     placeholder="https://linkedin.com/in/yourprofile"
@@ -78,29 +78,30 @@
                                     @foreach (json_decode($user->education, true) as $index => $edu)
                                         <div class="education-entry mb-3 border p-3 rounded">
                                             <div class="row g-2">
-                                                <div class="col-md-4">
+                                                <div class="col-12 col-md-4 mb-2 mb-md-0">
                                                     <label class="form-label">Institute</label>
                                                     <input type="text" class="form-control" name="education_institute[]"
                                                         value="{{ $edu['institute'] ?? '' }}" required>
                                                 </div>
-                                                <div class="col-md-3">
+                                                <div class="col-12 col-md-3 mb-2 mb-md-0">
                                                     <label class="form-label">Department</label>
                                                     <input type="text" class="form-control" name="education_department[]"
                                                         value="{{ $edu['department'] ?? '' }}">
                                                 </div>
-                                                <div class="col-md-2">
+                                                <div class="col-12 col-md-2 mb-2 mb-md-0">
                                                     <label class="form-label">Result</label>
                                                     <input type="text" class="form-control" name="education_result[]"
                                                         value="{{ $edu['result'] ?? '' }}">
                                                 </div>
-                                                <div class="col-md-2">
+                                                <div class="col-12 col-md-2 mb-2 mb-md-0">
                                                     <label class="form-label">Year</label>
                                                     <input type="text" class="form-control" name="education_year[]"
                                                         value="{{ $edu['year'] ?? '' }}">
                                                 </div>
-                                                <div class="col-md-1 d-flex align-items-end">
+                                                <div
+                                                    class="col-12 col-md-1 d-flex align-items-end justify-content-start justify-content-md-center">
                                                     <button type="button"
-                                                        class="btn btn-danger btn-sm remove-education">×</button>
+                                                        class="btn btn-danger btn-sm remove-education mt-2 mt-md-0">×</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -119,28 +120,29 @@
                                     @foreach (json_decode($user->experience, true) as $index => $exp)
                                         <div class="experience-entry mb-3 border p-3 rounded">
                                             <div class="row g-2">
-                                                <div class="col-md-3">
+                                                <div class="col-12 col-md-3 mb-2 mb-md-0">
                                                     <label class="form-label">Job Title</label>
                                                     <input type="text" class="form-control" name="job_title[]"
                                                         value="{{ $exp['title'] ?? '' }}" required>
                                                 </div>
-                                                <div class="col-md-3">
+                                                <div class="col-12 col-md-3 mb-2 mb-md-0">
                                                     <label class="form-label">Company</label>
                                                     <input type="text" class="form-control" name="job_company[]"
                                                         value="{{ $exp['company'] ?? '' }}">
                                                 </div>
-                                                <div class="col-md-2">
+                                                <div class="col-12 col-md-2 mb-2 mb-md-0">
                                                     <label class="form-label">Duration</label>
                                                     <input type="text" class="form-control" name="job_duration[]"
                                                         value="{{ $exp['duration'] ?? '' }}">
                                                 </div>
-                                                <div class="col-md-3">
+                                                <div class="col-12 col-md-3 mb-2 mb-md-0">
                                                     <label class="form-label">Description</label>
                                                     <textarea class="form-control" name="job_description[]" rows="1">{{ $exp['description'] ?? '' }}</textarea>
                                                 </div>
-                                                <div class="col-md-1 d-flex align-items-end">
+                                                <div
+                                                    class="col-12 col-md-1 d-flex align-items-end justify-content-start justify-content-md-center">
                                                     <button type="button"
-                                                        class="btn btn-danger btn-sm remove-experience">×</button>
+                                                        class="btn btn-danger btn-sm remove-experience mt-2 mt-md-0">×</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -151,9 +153,10 @@
                                 Add Work Experience</button>
                         </div>
 
-                        <!-- Skills -->
+                        <!-- Skills and References Row -->
                         <div class="row g-3 mt-4">
-                            <div class="col-md-4">
+                            <!-- Skills -->
+                            <div class="col-12 col-md-6 col-lg-4">
                                 <label class="form-label" for="skillsInput">Skills</label>
                                 <div class="form-control p-2" id="skills-box" style="min-height: 50px;">
                                     @if (isset($user) && $user->skills)
@@ -175,7 +178,7 @@
                             </div>
 
                             <!-- Reference -->
-                            <div class="col-md-4">
+                            <div class="col-12 col-md-6 col-lg-4">
                                 <label class="form-label">References</label>
                                 <div id="referenceContainer">
                                     @if (isset($user) && $user->references)
@@ -191,8 +194,8 @@
                                     Add Reference</button>
                             </div>
 
-                            <!-- Image with Cropper Upload -->
-                            <div class="col-md-4">
+                            <!-- Image Upload -->
+                            <div class="col-12 col-md-12 col-lg-4">
                                 <label class="form-label">Upload & Crop Image</label>
                                 <button type="button" class="btn btn-outline-primary w-100" data-bs-toggle="modal"
                                     data-bs-target="#imageCropModal">
@@ -212,7 +215,7 @@
                                             </div>
                                             <div class="card-body p-2 text-center">
                                                 <img src="{{ asset('storage/' . $existingImage) }}"
-                                                    class="img-fluid rounded" style="max-height: 200px;" />
+                                                    class="img-fluid rounded" style="max-height: 150px; width: auto;" />
                                             </div>
                                         </div>
                                     @endif
@@ -228,41 +231,40 @@
                                     </div>
                                     <div class="card-body p-2 text-center">
                                         <img id="croppedPreviewImage" src="" class="img-fluid rounded"
-                                            style="max-height: 200px;" />
+                                            style="max-height: 150px; width: auto;" />
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <!-- Bootstrap Modal -->
-                            <div class="modal fade" id="imageCropModal" tabindex="-1"
-                                aria-labelledby="imageCropModalLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-lg modal-dialog-centered">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title">Upload & Crop Image</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
+                        <!-- Bootstrap Modal -->
+                        <div class="modal fade" id="imageCropModal" tabindex="-1" aria-labelledby="imageCropModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-lg modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Upload & Crop Image</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body text-center">
+                                        <input type="file" id="imageInput" accept="image/*"
+                                            class="form-control mb-3">
+                                        <div id="cropperContainer" style="max-height: 400px; overflow: hidden;">
+                                            <img id="cropperPreview" style="max-width: 100%; display: none;" />
                                         </div>
-                                        <div class="modal-body text-center">
-                                            <input type="file" id="imageInput" accept="image/*"
-                                                class="form-control mb-3">
-                                            <div id="cropperContainer" style="max-height: 400px; overflow: hidden;">
-                                                <img id="cropperPreview" style="max-width: 100%; display: none;" />
-                                            </div>
+                                    </div>
+
+                                    <div class="modal-footer d-flex justify-content-between">
+                                        <div class="me-auto d-flex align-items-center">
+                                            <span id="cropDimensions" class="text-muted small"
+                                                style="display: none;"></span>
                                         </div>
-
-                                        <div class="modal-footer d-flex justify-content-between">
-                                            <div class="me-auto d-flex align-items-center">
-                                                <span id="cropDimensions" class="text-muted small"
-                                                    style="display: none;"></span>
-
-                                            </div>
-                                            <div>
-                                                <button type="button" id="cropButton" class="btn btn-primary"
-                                                    style="display:none;">Crop & Save</button>
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Close</button>
-                                            </div>
+                                        <div>
+                                            <button type="button" id="cropButton" class="btn btn-primary"
+                                                style="display:none;">Crop & Save</button>
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Close</button>
                                         </div>
                                     </div>
                                 </div>
@@ -281,7 +283,7 @@
 
                         <!-- Submit Button -->
                         <div class="mt-4">
-                            <button class="btn btn-primary" type="submit">
+                            <button class="btn btn-primary w-100 w-md-auto" type="submit">
                                 {{ isset($user) ? 'Update Application' : 'Submit Form' }}
                             </button>
                         </div>
@@ -295,24 +297,24 @@
     <div id="educationTemplate" style="display: none;">
         <div class="education-entry mb-3 border p-3 rounded">
             <div class="row g-2">
-                <div class="col-md-4">
+                <div class="col-12 col-md-4 mb-2 mb-md-0">
                     <label class="form-label">Institute</label>
                     <input type="text" class="form-control" name="education_institute[]" required>
                 </div>
-                <div class="col-md-3">
+                <div class="col-12 col-md-3 mb-2 mb-md-0">
                     <label class="form-label">Department</label>
                     <input type="text" class="form-control" name="education_department[]">
                 </div>
-                <div class="col-md-2">
+                <div class="col-12 col-md-2 mb-2 mb-md-0">
                     <label class="form-label">Result</label>
                     <input type="text" class="form-control" name="education_result[]">
                 </div>
-                <div class="col-md-2">
+                <div class="col-12 col-md-2 mb-2 mb-md-0">
                     <label class="form-label">Year</label>
                     <input type="text" class="form-control" name="education_year[]">
                 </div>
-                <div class="col-md-1 d-flex align-items-end">
-                    <button type="button" class="btn btn-danger btn-sm remove-education">×</button>
+                <div class="col-12 col-md-1 d-flex align-items-end justify-content-start justify-content-md-center">
+                    <button type="button" class="btn btn-danger btn-sm remove-education mt-2 mt-md-0">×</button>
                 </div>
             </div>
         </div>
@@ -322,28 +324,64 @@
     <div id="experienceTemplate" style="display: none;">
         <div class="experience-entry mb-3 border p-3 rounded">
             <div class="row g-2">
-                <div class="col-md-3">
+                <div class="col-12 col-md-3 mb-2 mb-md-0">
                     <label class="form-label">Job Title</label>
                     <input type="text" class="form-control" name="job_title[]" required>
                 </div>
-                <div class="col-md-3">
+                <div class="col-12 col-md-3 mb-2 mb-md-0">
                     <label class="form-label">Company</label>
                     <input type="text" class="form-control" name="job_company[]">
                 </div>
-                <div class="col-md-2">
+                <div class="col-12 col-md-2 mb-2 mb-md-0">
                     <label class="form-label">Duration</label>
                     <input type="text" class="form-control" name="job_duration[]">
                 </div>
-                <div class="col-md-3">
+                <div class="col-12 col-md-3 mb-2 mb-md-0">
                     <label class="form-label">Description</label>
                     <textarea class="form-control" name="job_description[]" rows="1"></textarea>
                 </div>
-                <div class="col-md-1 d-flex align-items-end">
-                    <button type="button" class="btn btn-danger btn-sm remove-experience">×</button>
+                <div class="col-12 col-md-1 d-flex align-items-end justify-content-start justify-content-md-center">
+                    <button type="button" class="btn btn-danger btn-sm remove-experience mt-2 mt-md-0">×</button>
                 </div>
             </div>
         </div>
     </div>
+
+    <style>
+        /* Additional responsive styles */
+        @media (max-width: 768px) {
+
+            .education-entry .row,
+            .experience-entry .row {
+                margin-bottom: 0.5rem;
+            }
+
+            .education-entry .col-12,
+            .experience-entry .col-12 {
+                margin-bottom: 0.5rem;
+            }
+
+            .card {
+                margin: 0 -0.75rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .p-md-4 {
+                padding: 1rem !important;
+            }
+
+            .education-entry,
+            .experience-entry {
+                padding: 1rem !important;
+            }
+
+            .btn-sm {
+                padding: 0.25rem 0.5rem;
+                font-size: 0.875rem;
+            }
+        }
+    </style>
 
     @push('scripts')
         <script>
@@ -413,7 +451,7 @@
                     }
                 }
 
-                // Image cropper initialization would go here
+                // Image cropper initialization
                 let cropper;
                 const imageInput = document.getElementById('imageInput');
                 const cropperPreview = document.getElementById('cropperPreview');
@@ -457,7 +495,7 @@
                                     const width = Math.round(data.width);
                                     const height = Math.round(data.height);
                                     cropDimensions.textContent = `${width} × ${height} px`;
-                                    cropDimensions.style.display = 'inline'; // Show here too
+                                    cropDimensions.style.display = 'inline'; 
                                 }, 100);
                             };
 
