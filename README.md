@@ -24,20 +24,20 @@ Allows users to fill personal info, education, experience, skills, references, a
 ---
 
 ### 📋 CV Index
-List of submitted CVs with options to **view**, **edit**, and **delete**.
+List of submitted CVs with options to view, edit, and delete.
 Provides an overview of all CV submissions for authenticated users.  
 ![Index View](https://github.com/Obyedullahilmamun/CV-Maker/blob/22e32fc5c2a4961b2263f8a1427135088a1f1876/images/index-view.png)
 
 ---
 
 ### 👥 Spatie Management - Users
-Frontend view of the **Users** management section.
+Frontend view of the Users management section.
 ![Users View](https://github.com/Obyedullahilmamun/CV-Maker/blob/22e32fc5c2a4961b2263f8a1427135088a1f1876/images/users-view.png)
 
 ---
 
 ### 🛡️ Spatie Management - Roles
-Frontend view of the **Roles** management section.
+Frontend view of the Roles management section.
 ![Roles View](https://github.com/Obyedullahilmamun/CV-Maker/blob/22e32fc5c2a4961b2263f8a1427135088a1f1876/images/roles-view.png)
 
 
